@@ -14,6 +14,7 @@ if (isset($_GET['p'])) {
     }
 }
 
-require __DIR__ . '/../php/views/partials/header.php';
 require __DIR__ . '/../php/views/pages/'.$page.'.php';
+require __DIR__ . '/../php/views/partials/header.php';
+echo $pageContent;
 require __DIR__ . '/../php/views/partials/footer.php';
