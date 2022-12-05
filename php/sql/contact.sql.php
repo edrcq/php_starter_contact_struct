@@ -33,3 +33,9 @@ function save_contact_form_global($fullname, $email, $phone, $text) {
     ]);
 }
 
+function get_all_contact_form($db) {
+    $query = $db->prepare('SELECT * FROM contacts');
+    $query->execute();
+
+    return $query->fetchAll(PDO::FETCH_CLASS, 'ContactForm'); // recupere un tableau des resultats de la requete SQL
+}

@@ -8,9 +8,9 @@ ob_start();
 
 <?php
 // TEST XSS - WHY htmlspecialchars()
-// $testContent = "<h2>Test content</h2>";
-// echo $testContent;
-// echo htmlspecialchars($testContent);
+$testContent = "<h2>Test content</h2>";
+echo $testContent;
+echo htmlspecialchars($testContent);
 ?>
 
 <?php

@@ -28,7 +28,7 @@ $fullname = htmlspecialchars($_POST['fullname']);
 $phone = htmlspecialchars($_POST['phone']);
 $text = htmlspecialchars($_POST['text']);
 
-save_contact_form($db, $fullname, $_POST['email'], $phone, $text);
+$contactFormManager->save_contact_form($fullname, $_POST['email'], $phone, $text);
 
 $_SESSION['form_success'] = 1;
 
