@@ -20,7 +20,7 @@ if (strlen($_POST['text']) < 10) {
     save_error("Votre message est trop petit.");
 }
 
-if (filter_var($_POST['email'], FILTER_VALIDATE_EMAL) === false) {
+if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
     save_error("Votre email est incorrect");
 }
 
@@ -28,12 +28,8 @@ $fullname = htmlspecialchars($_POST['fullname']);
 $phone = htmlspecialchars($_POST['phone']);
 $text = htmlspecialchars($_POST['text']);
 
-$query = $db->prepare('INSERT INTO contacts(fullname, email, phone, text) VALUES(:fullname, :email, :phone, :text)');
-$query->execute([
-    ':fullname' => $fullname,
-    ':email' => $_POST['email'],
-    ':phone' => $phone,
-    ':text' => $text
-]);
+save_contact_form($db, $fullname, $_POST['email'], $phone, $text);
 
-header('Location: ' . $_SERVER['HTTP_REFERER'] . '&success=1');
+$_SESSION['form_success'] = 1;
+
+header('Location: ' . $_SERVER['HTTP_REFERER']);

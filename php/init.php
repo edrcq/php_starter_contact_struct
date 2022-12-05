@@ -13,5 +13,6 @@ $router_pages = ['home', 'contact'];
 require_once __DIR__ . '/utils/errors.php';
 
 // inclure tous les fichiers du dossier sql
+require_once __DIR__ . '/sql/contact.sql.php';
 
 // inclure toutes les classes
